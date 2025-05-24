@@ -8,9 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50130b24-7a8b-4d91-a88b-abfd1326718d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/SignupViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IdentityNetCore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IdentityNetCore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/SingupViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/IdentityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/SignupViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SignupViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +128,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1748103609238</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="9">
+      <option name="closed" value="true" />
+      <created>1748103643758</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1748103643758</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +148,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="..." />
     <MESSAGE value="9..." />
-    <option name="LAST_COMMIT_MESSAGE" value="9..." />
+    <MESSAGE value="9" />
+    <option name="LAST_COMMIT_MESSAGE" value="9" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
