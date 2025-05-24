@@ -13,19 +13,22 @@ var connString = builder.Configuration["ConnectionStrings:Default"];
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
+// Configure identity options
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequiredLength = 8;
     options.Password.RequireDigit = true;
     options.Password.RequireNonAlphanumeric = true;
 
-    options.Lockout.MaxFailedAccessAttempts = 3;
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+    options.Lockout.MaxFailedAccessAttempts = 4;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
 
     options.SignIn.RequireConfirmedEmail = true;
 });
 
-builder.Services.ConfigureApplicationCookie(options =>
+// Configure cookie settings
+builder.Services.ConfigureApplicationCookie
+(options =>
 {
     options.LoginPath = "/Home/SignIn";
     options.AccessDeniedPath = "/Home/AccessDenied";
