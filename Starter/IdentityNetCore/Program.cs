@@ -1,58 +1,26 @@
-using System;
-using IdentityNetCore.Data;
+using IdentityNetCore;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connString = builder.Configuration["ConnectionStrings:Default"];
-
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
-
-// Configure identity options
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    options.Password.RequiredLength = 8;
-    options.Password.RequireDigit = true;
-    options.Password.RequireNonAlphanumeric = true;
-
-    options.Lockout.MaxFailedAccessAttempts = 4;
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-
-    options.SignIn.RequireConfirmedEmail = true;
-});
-
-// Configure cookie settings
-builder.Services.ConfigureApplicationCookie
-(options =>
-{
-    options.LoginPath = "/Home/SignIn";
-    options.AccessDeniedPath = "/Home/AccessDenied";
-    options.ExpireTimeSpan = TimeSpan.FromHours(1);
-});
-
-builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
+var startup = new Startup(builder.Configuration);
+startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseAuthorization();
-app.UseAuthentication();
-
-app.MapDefaultControllerRoute();
-app.MapRazorPages();
+startup.Configure(app, app.Environment);
+// if (!app.Environment.IsDevelopment())
+// {
+//     app.UseExceptionHandler("/Home/Error");
+//     app.UseHsts();
+// }
+// app.UseHttpsRedirection();
+// app.UseStaticFiles();
+//
+// app.UseAuthorization();
+// app.UseAuthentication();
+//
+// app.MapDefaultControllerRoute();
+// app.MapRazorPages();
 
 app.Run();
