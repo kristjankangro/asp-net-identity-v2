@@ -8,14 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50130b24-7a8b-4d91-a88b-abfd1326718d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Service/IEmailSender.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/SmtpEmailSender.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/SmtpOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Identity/Signup.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IdentityNetCore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IdentityNetCore/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/IdentityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/SignupViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/SignupViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -34,7 +44,11 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7cd5c2b34129c679757d73774749838069732e89a78ac285d916b7bb4df98c16/IdentityResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d8d9726f3deb1bbf671f5b791e4dc3e0338219a996f439ad2a69024b825c60/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Cookie-Based-Roles/IdentityNetCore/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Cookie-Based/IdentityNetCore/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Migrations/20250524150247_Initial.Designer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,25 +73,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.IdentityNetCore.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver.localdb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver.localdb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="IdentityNetCore" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -135,7 +150,14 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1748103643758</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="9 done">
+      <option name="closed" value="true" />
+      <created>1748104778961</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1748104778961</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +171,8 @@
     <MESSAGE value="..." />
     <MESSAGE value="9..." />
     <MESSAGE value="9" />
-    <option name="LAST_COMMIT_MESSAGE" value="9" />
+    <MESSAGE value="9 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="9 done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -166,6 +189,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/IdentityController.cs</url>
+          <line>25</line>
+          <properties documentPath="C:\Users\kristjan\RiderProjects\asp-net-identity-v2\Starter\IdentityNetCore\Controllers\IdentityController.cs" containingFunctionPresentation="Method 'Signup'">
+            <startOffsets>
+              <option value="624" />
+            </startOffsets>
+            <endOffsets>
+              <option value="685" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
