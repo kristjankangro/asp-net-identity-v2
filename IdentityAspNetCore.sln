@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityNetCore", "IdentityNetCore\IdentityNetCore.csproj", "{3D54EFE1-B1CB-4D1D-B264-AF85B6C32291}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starter", "Starter\Starter.csproj", "{3D54EFE1-B1CB-4D1D-B264-AF85B6C32291}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
