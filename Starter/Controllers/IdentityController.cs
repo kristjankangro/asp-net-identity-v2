@@ -10,11 +10,13 @@ public class IdentityController: Controller
 {
 	
 	private readonly UserManager<IdentityUser> _userManager;
+	private readonly SignInManager<IdentityUser> _signInManager;
 	private readonly IEmailSender _emailSender;
 
-	public IdentityController(UserManager<IdentityUser> userManager, IEmailSender emailSender)
+	public IdentityController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,IEmailSender emailSender)
 	{
 		_userManager = userManager;
+		_signInManager = signInManager;
 		_emailSender = emailSender;
 	}
 
@@ -75,12 +77,30 @@ public class IdentityController: Controller
 		return View("Signup");
 	}
 	
-	public async Task<IActionResult> Signin()
+	public IActionResult Signin() => View(new SigninModel());
+	
+	[HttpPost]
+	public async Task<IActionResult> Signin(SigninModel model)
 	{
-		// This is the main entry point for the Identity UI.
-		// You can customize this to redirect to a specific page or return a view.
-		return View();
-	}	public async Task<IActionResult> AccessDenied()
+		if (!ModelState.IsValid) 
+			return View(model);
+
+		var result = await _signInManager.PasswordSignInAsync(
+			model.Username, 
+			model.Password, 
+			model.RememberMe,
+			false);
+		if (result.Succeeded)
+		{
+			return RedirectToAction("Index", "Home");
+		}
+		
+		ModelState.AddModelError("Login", "Invalid login attempt.");
+
+		return View(model);
+	}
+
+	public async Task<IActionResult> AccessDenied()
 	{
 		// This is the main entry point for the Identity UI.
 		// You can customize this to redirect to a specific page or return a view.
