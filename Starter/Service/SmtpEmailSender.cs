@@ -22,7 +22,6 @@ public class SmtpEmailSender : IEmailSender
 			From = new MailAddress(fromEmail),
 			Subject = subject,
 			Body = message,
-			IsBodyHtml = true,
 			To = { new MailAddress(toEmail) }
 		};
 		using var client = new SmtpClient(_options.Value.Host, _options.Value.Port)

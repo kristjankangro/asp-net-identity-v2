@@ -34,6 +34,7 @@ builder.Services.ConfigureApplicationCookie(options => {
 
 builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection("Smtp"));
 builder.Services.AddSingleton<IEmailSender, SmtpEmailSender>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

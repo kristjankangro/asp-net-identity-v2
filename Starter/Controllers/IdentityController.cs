@@ -21,64 +21,53 @@ public class IdentityController: Controller
 	[HttpPost]
 	public async Task<IActionResult> Signup(SignupViewModel model)
 	{
-		if (ModelState.IsValid)
+		if (!ModelState.IsValid) return View(model);
+		
+		if (await _userManager.FindByEmailAsync(model.Email) != null)
 		{
-			if (await _userManager.FindByEmailAsync(model.Email) != null)
+			ModelState.AddModelError("Email", "Email already exists.");
+		}
+		else
+		{
+			// Here you would typically create the user and save it to the database.
+			var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+			var result = await _userManager.CreateAsync(user, model.Password);
+			user = await _userManager.FindByEmailAsync(model.Email);
+			if (result.Succeeded)
 			{
-				ModelState.AddModelError("Email", "Email already exists.");
-			}
-			else
-			{
-				// Here you would typically create the user and save it to the database.
-				var user = new IdentityUser { UserName = model.Email, Email = model.Email };
-				var result = await _userManager.CreateAsync(user, model.Password);
-				user = await _userManager.FindByEmailAsync(model.Email);
-				if (result.Succeeded)
-				{
-					var confirmLink = Url.ActionLink("ConfirmEmail", "Identity", 
-						new { userId = user.Id, 
-							token = await _userManager.GenerateEmailConfirmationTokenAsync(user) });
+				var confirmLink = Url.ActionLink("ConfirmEmail", "Identity", 
+					new { userId = user.Id, 
+						token = await _userManager.GenerateEmailConfirmationTokenAsync(user) });
 
-					await _emailSender.SendEmailAsync(
-						"info@gmail.com",
-						user.Email, 
-						"Confirm your email",
-						$"Please confirm your email by clicking.{confirmLink}"
-						);
-					return RedirectToAction("Signin");
-				}
+				await _emailSender.SendEmailAsync(
+					"info@gmail.com",
+					user.Email, 
+					"Confirm your email",
+					$"Please confirm your email by clicking.{confirmLink}"
+				);
+				return RedirectToAction("Signin");
+			}
 				
-				foreach (var error in result.Errors)
-				{
-					ModelState.AddModelError(string.Empty, error.Description);
-				}
+			foreach (var error in result.Errors)
+			{
+				ModelState.AddModelError(string.Empty, error.Description);
 			}
 		}
-		
+
 		return View(model);
 	}
 	
 	public async Task<IActionResult> ConfirmEmail(string userId, string token)
 	{
-		return Ok();
-		// if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
-		// {
-		// 	return BadRequest("Invalid user ID or token.");
-		// }
-		//
-		// var user = await _userManager.FindByIdAsync(userId);
-		// if (user == null)
-		// {
-		// 	return NotFound("User not found.");
-		// }
-		//
-		// var result = await _userManager.ConfirmEmailAsync(user, token);
-		// if (result.Succeeded)
-		// {
-		// 	return View("ConfirmEmailSuccess");
-		// }
-		//
-		// return View("ConfirmEmailFailure");
+		var user = await _userManager.FindByIdAsync(userId);
+		var result = await _userManager.ConfirmEmailAsync(user, token);
+		if (!result.Succeeded)
+		{
+			ModelState.AddModelError(string.Empty, "Email confirmation failed.");
+			return new NotFoundResult();
+		}
+
+		return RedirectToAction("Signin");
 	}
 	
 	public async Task<IActionResult> Signup()
