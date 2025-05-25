@@ -38,12 +38,12 @@ public class IdentityController: Controller
 				var confirmLink = Url.ActionLink("ConfirmEmail", "Identity", 
 					new { userId = user.Id, 
 						token = await _userManager.GenerateEmailConfirmationTokenAsync(user) });
-
+				//todo email is not sent, options not coming in
 				await _emailSender.SendEmailAsync(
 					"info@gmail.com",
 					user.Email, 
 					"Confirm your email",
-					$"Please confirm your email by clicking.{confirmLink}"
+					confirmLink
 				);
 				return RedirectToAction("Signin");
 			}

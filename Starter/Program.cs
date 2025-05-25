@@ -12,7 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connString = builder.Configuration["ConnectionStrings:Default"];
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connString));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services
+	.AddIdentity<IdentityUser, IdentityRole>()
+	.AddEntityFrameworkStores<ApplicationDbContext>()
+	.AddDefaultTokenProviders();
 
 
 builder.Services.Configure<IdentityOptions>(options => {
